@@ -56,43 +56,42 @@ It is expressed as:
 ##  Code 
 ```scilab
 
-Gr = 25;               
-lm = 0.03;              
-sigma = 5;             
-pmin = 1e-12;          
-Gt = 30;       
-Pt = 1:10:5000;
-Rmax1 = (((Pt .* Gt .* Gr .* (lm.^2) .* sigma) ./ (((4 * %pi).^2) .* pmin))).^(1/4);
-
+Gr = 8;
+w = 7;
+sigma = 6;  
+pmin = 1e-10;
+Gt = 9;
+Pt = 0.5:0.5:100;   
+Rmax1 = (((Pt .* Gt .* Gr .* (w.^2) .* sigma) ./ (((4 * %pi).^2) .* pmin))).^(1/4);
 subplot(3,1,1);
 plot(Pt, Rmax1);
 
-
-Pt = 2000;           
-Gt = 1:1:60;           
-Rmax2 = (((Pt .* Gt .* Gr .* (lm.^2) .* sigma) ./ (((4 * %pi).^2) .* pmin))).^(1/4);
-
+Pt = 10;
+Gt = 0.1:0.1:9;     
+Rmax2 = (((Pt .* Gt .* Gr .* (w.^2) .* sigma) ./ (((4 * %pi).^2) .* pmin))).^(1/4);
 subplot(3,1,2);
 plot(Gt, Rmax2);
 
-Gt = 30;
-pmin = logspace(-15, -9, 200);   
-Rmax3 = (((Pt .* Gt .* Gr .* (lm.^2) .* sigma) ./ (((4 * %pi).^2) .* pmin))).^(1/4);
-
+Gt = 8;
+pmin = 1e-14:1e-13:1e-9;  
+Rmax3 = (((Pt .* Gt .* Gr .* (w.^2) .* sigma) ./ (((4 * %pi).^2) .* pmin))).^(1/4);
 subplot(3,1,3);
 plot(pmin, Rmax3);
+
 
 ```
 
 ## Output
 
-<img width="757" height="721" alt="image" src="https://github.com/user-attachments/assets/5143c5b6-45f5-4bfa-a74e-948acf0861c8" />
+<img width="1919" height="1199" alt="Radar Range Observation" src="https://github.com/user-attachments/assets/c976bc16-2610-409d-8a8f-0e578d1805bc" />
+
 
 
 
 ## Manual Calculation
 
-![WhatsApp Image 2025-11-06 at 10 06 34_4f9d309a](https://github.com/user-attachments/assets/39f3ddca-35f8-409c-af55-429a60271611)
+![Radar Range Observation](https://github.com/user-attachments/assets/ca47fe28-ce5f-411f-b2ce-a8cb655572a9)
+
 
 
 
