@@ -56,28 +56,25 @@ It is expressed as:
 ##  Code 
 ```scilab
 
-Gr = 50;
-w = 8;
-sigma = 9;  
-pmin = 1e-10;
-Gt = 10;
-Pt = 0.5:0.5:100;   
-Rmax1 = (((Pt .* Gt .* Gr .* (w.^2) .* sigma) ./ (((4 * %pi).^3) .* pmin))).^(1/4);
+Pt = 500;
+G = 500;
+sigma = 1;
+Ae = 10;
+
+Smin = logspace(-12, -6, 100);
+Rmax = ((Pt * G * sigma * Ae) ./ (16 * %pi^2 .* Smin)).^(1/4);
 subplot(3,1,1);
-plot(Pt, Rmax1);
+plot(Smin, Rmax);
 
-Pt = 15;
-Gt = 0.1:0.1:9;     
-Rmax2 = (((Pt .* Gt .* Gr .* (w.^2) .* sigma) ./ (((4 * %pi).^3) .* pmin))).^(1/4);
+Ppeak = linspace(100, 10000, 100);
+Rmax2 = ((Ppeak * G * sigma * Ae) ./ (16 * %pi^2 * 1e-5)).^(1/4);
 subplot(3,1,2);
-plot(Gt, Rmax2);
+plot(Ppeak, Rmax2);
 
-Gt = 5;
-pmin = 1e-14:1e-13:1e-9;  
-Rmax3 = (((Pt .* Gt .* Gr .* (w.^2) .* sigma) ./ (((4 * %pi).^2) .* pmin))).^(1/4);
+Gt = linspace(100, 2000, 100);
+Rmax3 = ((Pt * Gt * sigma * Ae) ./ (16 * %pi^2 * 1e-5)).^(1/4);
 subplot(3,1,3);
-plot(pmin,Rmax3);
-
+plot(Gt, Rmax3);
 
 
 
@@ -85,14 +82,14 @@ plot(pmin,Rmax3);
 
 ## Output
 
-<img width="1917" height="1137" alt="image" src="https://github.com/user-attachments/assets/a015361e-384d-4d29-9d6d-b99fbe40911f" />
+<img width="1260" height="749" alt="image" src="https://github.com/user-attachments/assets/b82b53c1-33eb-456d-a0b6-3fd32e0eee4a" />
 
 
 
 
 ## Manual Calculation
 
-![WhatsApp Image 2025-11-13 at 12 52 31_00bc96de](https://github.com/user-attachments/assets/4e5118b6-39f1-4ab9-b65e-aebd95d0f8a4)
+<img width="550" height="864" alt="image" src="https://github.com/user-attachments/assets/e16d5ba8-b290-4ac1-bcec-6c2f6832885b" />
 
 
 
